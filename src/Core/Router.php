@@ -2,8 +2,11 @@
 
 require_once ROOT . "/Core/Singleton.php";
 
+
 class Router extends Singleton
 {
+    private const _index = '/Global/index';
+
     public function route()
     {
         $uri = $this::prettify();
@@ -16,14 +19,27 @@ class Router extends Singleton
     {
         $uri = $_SERVER['REQUEST_URI'];
 
-        if ($uri === '/' or $uri[-1] !== '/')
+        if ($uri === '/')
+            return $this::_index;
+
+        if ($uri === $this::_index) {
+            $this->redirect(SITE);
+            return $uri;
+        }
+
+
+        if ($uri[-1] !== '/')
             return $uri;
 
         $new_uri = substr($uri, 0, -1);
-
-        // http_response_code(301);
-        // header('Location: ' . $new_uri);
-
+        $this->redirect($new_uri);
         return $new_uri;
+
+    }
+
+    public static function redirect($url)
+    {
+        http_response_code(301);
+        header('Location: ' . $url);
     }
 }
