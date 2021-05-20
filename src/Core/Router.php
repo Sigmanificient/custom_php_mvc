@@ -5,7 +5,8 @@ require_once ROOT . "/Core/Singleton.php";
 
 class Router extends Singleton
 {
-    private const _index = 'Global/index';
+    private const _global = 'Global';
+    private const _index = self::_global . '/index';
 
     public function route()
     {
@@ -15,7 +16,20 @@ class Router extends Singleton
         $controller = ucfirst(array_shift($params)) . 'Controller';
 
         if (!file_exists(ROOT . '/Controllers/' . $controller . '.php')) {
-            self::set_404();
+
+            $action = substr($controller, 0, -10);
+            $controller = $this::_global . 'Controller';
+
+            require_once ROOT . '/Controllers/' . $controller . '.php';
+
+            $controller = new $controller();
+
+            if (method_exists($controller, $action) && empty($params)) {
+                $controller->$action();
+                return;
+            }
+
+            $this->set_404();
             return;
         }
 
@@ -47,11 +61,15 @@ class Router extends Singleton
             return $uri;
         }
 
+        if (substr($uri, 0, strlen($this::_global)) === $this::_global) {
+            $this->redirect(SITE . substr($uri, strlen($this::_global)));
+        }
+
         if ($uri[-1] !== '/')
             return $uri;
 
         $new_uri = substr($uri, 0, -1);
-        $this->redirect($new_uri);
+        $this->redirect(SITE . '/' . $new_uri);
         return $new_uri;
 
     }
