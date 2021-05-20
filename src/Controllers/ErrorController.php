@@ -1,12 +1,13 @@
 <?php
 
+require_once ROOT . "/Controllers/Controller.php";
 
-class ErrorController
+
+class ErrorController extends Controller
 {
 
     public function not_found()
     {
         echo "404";
     }
-
 }

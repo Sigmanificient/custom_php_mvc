@@ -42,7 +42,6 @@ class Router extends Singleton
 
         $uri = substr($uri, 1);
 
-
         if ($uri === $this::_index) {
             $this->redirect(SITE);
             return $uri;
@@ -65,6 +64,11 @@ class Router extends Singleton
 
     public static function set_404()
     {
-        self::redirect("/Error/not_found", 404);
+        $controller = 'ErrorController';
+
+        require_once ROOT . '/Controllers/' . $controller . '.php';
+        $controller = new $controller();
+
+        $controller->not_found();
     }
 }
