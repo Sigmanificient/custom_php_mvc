@@ -16,10 +16,15 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-header {
-    width: 100vw;
-    padding: 20px 0;
+header, footer {
+    display: grid;
+    place-items: center;
     background-color: var(--primary-color-500);
+    width: 100vw;
+}
+
+.flex {
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,8 +56,6 @@ h1.title {
 }
 
 footer {
-    width: 100vw;
-    background-color: var(--primary-color-600);
     position: fixed;
     bottom: 0;
 }

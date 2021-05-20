@@ -17,7 +17,7 @@ $content = $content ?? "<p>Page temporarily unavailable</p>";
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container flex">
             <a href="<?= SITE ?>">Home</a>
             <nav class="navbar">
                 <a href="<?= SITE ?>/Articles">Articles</a>
@@ -30,9 +30,12 @@ $content = $content ?? "<p>Page temporarily unavailable</p>";
         <?= $content ?>
     </main>
     <footer>
-        <a href="https://github.com/Sigmanificient">
-            <img src="" alt="">
-        </a>
+        <div class="container flex">
+            <p>Made By Boniface Yohann</p>
+            <a href="https://github.com/Sigmanificient">
+                <img src="" alt="">
+            </a>
+        </div>
     </footer>
 </body>
 </html>
