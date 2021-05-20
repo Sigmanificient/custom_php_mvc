@@ -1,6 +1,6 @@
 <?php
 define('ROOT', dirname(__DIR__));
-define('SITE', ($_SERVER['SERVER_PORT'] == 443) ? "https://": "http://" . $_SERVER['SERVER_NAME']);
+define('SITE', (isset($_SERVER['HTTPS']) ? "https://": "http://") . $_SERVER['SERVER_NAME']);
 
 session_start();
 
