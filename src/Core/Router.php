@@ -10,9 +10,21 @@ class Router extends Singleton
     public function route()
     {
         $uri = $this::prettify();
+        $params = explode('/', $uri);
+        $controller = array_shift($params) . 'Controller';
 
-        echo $uri;
+        if (!file_exists(ROOT . '/Controllers/' . $controller . '.php'))
+            self::set_404();
 
+        $controller = new $controller();
+
+        $action = (isset($params[0])) ? array_shift($params) : $controller->default_action;
+        $action = method_exists($controller, $action) ? $action : $controller->default_action;
+
+        if ($action === '404')
+            self::set_404();
+
+        empty($params) ? $controller->action() : $controller->action($params);
     }
 
     public function prettify(): string
@@ -27,7 +39,6 @@ class Router extends Singleton
             return $uri;
         }
 
-
         if ($uri[-1] !== '/')
             return $uri;
 
@@ -37,7 +48,7 @@ class Router extends Singleton
 
     }
 
-    public static function redirect($url, $code=301)
+    public static function redirect($url, $code = 301)
     {
         http_response_code($code);
         header('Location: ' . $url);
