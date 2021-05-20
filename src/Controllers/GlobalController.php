@@ -8,7 +8,7 @@ class GlobalController extends Controller
 
     public function index()
     {
-        echo "welcome";
+        $this->render('index');
     }
 
     public function foo()
