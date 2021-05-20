@@ -1,0 +1,31 @@
+<?php
+$content = $content ?? "<p>Page temporarily unavailable</p>";
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Custom Php MVC</title>
+</head>
+<body>
+    <header>
+        <a href="<?= SITE ?>">Home</a>
+        <nav class="navbar">
+            <a href="<?= SITE ?>/Articles">Articles</a>
+            <a href="<?= SITE ?>/About">About</a>
+            <a href="<?= SITE ?>/User/login">Login</a>
+        </nav>
+    </header>
+    <main>
+        <?= $content ?>
+    </main>
+    <footer>
+        <a href="https://github.com/Sigmanificient">
+            <img src="" alt="">
+        </a>
+    </footer>
+</body>
+</html>
