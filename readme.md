@@ -3,5 +3,17 @@
 Simple Model/View/Controller based structure for an organized project.
 
 
-# Requirements
+### Available routes :
+- ` ` => `$this::_index`
+
+- `$method` => `$this::_global/$method`
+
+- `$controller` => `$controller/$controller::default_action`
+
+- `$controller/$method`
+
+- `$controller/$method/$parameters`
+
+
+## Requirements
 - `Php >= 7.2`
