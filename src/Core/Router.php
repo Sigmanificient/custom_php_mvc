@@ -5,26 +5,32 @@ require_once ROOT . "/Core/Singleton.php";
 
 class Router extends Singleton
 {
-    private const _index = '/Global/index';
+    private const _index = 'Global/index';
 
     public function route()
     {
         $uri = $this::prettify();
+
         $params = explode('/', $uri);
-        $controller = array_shift($params) . 'Controller';
+        $controller = ucfirst(array_shift($params)) . 'Controller';
 
-        if (!file_exists(ROOT . '/Controllers/' . $controller . '.php'))
+        if (!file_exists(ROOT . '/Controllers/' . $controller . '.php')) {
             self::set_404();
+            return;
+        }
 
+        require_once ROOT . '/Controllers/' . $controller . '.php';
         $controller = new $controller();
 
         $action = (isset($params[0])) ? array_shift($params) : $controller->default_action;
         $action = method_exists($controller, $action) ? $action : $controller->default_action;
 
-        if ($action === '404')
+        if ($action === '404') {
             self::set_404();
+            return;
+        }
 
-        empty($params) ? $controller->action() : $controller->action($params);
+        empty($params) ? $controller->$action() : $controller->$action($params);
     }
 
     public function prettify(): string
@@ -33,6 +39,9 @@ class Router extends Singleton
 
         if ($uri === '/')
             return $this::_index;
+
+        $uri = substr($uri, 1);
+
 
         if ($uri === $this::_index) {
             $this->redirect(SITE);
@@ -56,6 +65,6 @@ class Router extends Singleton
 
     public static function set_404()
     {
-        self::redirect("/Error/404", 404);
+        self::redirect("/Error/not_found", 404);
     }
 }
