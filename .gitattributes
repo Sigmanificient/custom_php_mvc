@@ -1,0 +1,6 @@
+*.html linguist-language=html
+*.css linguist-language=css
+*.php linguist-language=php
+
+*.sql linguist-detectable=true
+*.sql linguist-language=sql
