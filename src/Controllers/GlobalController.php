@@ -11,8 +11,8 @@ class GlobalController extends Controller
         $this->render('index');
     }
 
-    public function foo()
+    public function about()
     {
-        echo "foo";
+        $this->render('about');
     }
 }
