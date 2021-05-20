@@ -1,0 +1,58 @@
+:root {
+    --primary-color-400: #FCFCFC;
+    --primary-color-500: #EEEEEE;
+    --primary-color-600: #434343;
+
+    --secondary-color-400: #DD6A3A;
+    --secondary-color-500: #AA512C;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    color: var(--primary-color-600);
+    background-color: var(--primary-color-400);
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    width: 100vw;
+    padding: 20px 0;
+    background-color: var(--primary-color-500);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    color: var(--secondary-color-400);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color-400);
+}
+
+h1.title {
+    font-size: 3em;
+    font-family: 'Pattaya', sans-serif;
+    text-align: center;
+}
+
+.card {
+    background-color: var(--primary-color-500);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.container {
+    width: 90vw;
+}
+
+footer {
+    width: 100vw;
+    background-color: var(--primary-color-600);
+    position: fixed;
+    bottom: 0;
+}
