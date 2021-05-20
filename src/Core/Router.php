@@ -37,9 +37,14 @@ class Router extends Singleton
 
     }
 
-    public static function redirect($url)
+    public static function redirect($url, $code=301)
     {
-        http_response_code(301);
+        http_response_code($code);
         header('Location: ' . $url);
+    }
+
+    public static function set_404()
+    {
+        self::redirect("/Error/404", 404);
     }
 }
