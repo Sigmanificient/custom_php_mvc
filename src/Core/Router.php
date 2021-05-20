@@ -6,22 +6,24 @@ class Router extends Singleton
 {
     public function route()
     {
-        $this::prettify();
+        $uri = $this::prettify();
+
+        echo $uri;
+
     }
 
-    public function prettify()
+    public function prettify(): string
     {
         $uri = $_SERVER['REQUEST_URI'];
 
-        if ($uri === '/')
-            return;
-
-        if ($uri[-1] !== '/')
-            return;
+        if ($uri === '/' or $uri[-1] !== '/')
+            return $uri;
 
         $new_uri = substr($uri, 0, -1);
 
-        http_response_code(301);
-        header('Location: ' . $new_uri);
+        // http_response_code(301);
+        // header('Location: ' . $new_uri);
+
+        return $new_uri;
     }
 }
