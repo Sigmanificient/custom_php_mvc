@@ -15,25 +15,25 @@ $content = $content ?? "<p>Page temporarily unavailable</p>";
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
+<body class="grid">
+    <header class="grid">
         <div class="container flex">
             <a href="<?= SITE ?>">Home</a>
-            <nav class="navbar">
+            <nav class="navbar flex">
                 <a href="<?= SITE ?>/Articles">Articles</a>
                 <a href="<?= SITE ?>/About">About</a>
                 <a href="<?= SITE ?>/User/login">Login</a>
             </nav>
         </div>
     </header>
-    <main class="container">
+    <main class="container grid">
         <?= $content ?>
     </main>
-    <footer>
+    <footer class="grid">
         <div class="container flex">
             <p>Made By Boniface Yohann</p>
-            <a href="https://github.com/Sigmanificient">
-                <img src="" alt="">
+            <a href="https://github.com/Sigmanificient/custom_php_mvc">
+                <img src="<?= SITE ?>/img/github.png" height="40px" alt="Github">
             </a>
         </div>
     </footer>

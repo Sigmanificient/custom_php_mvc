@@ -7,28 +7,47 @@
     --secondary-color-500: #AA512C;
 }
 
+::-webkit-scrollbar {
+    width: 8px; height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color-500);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color-600);
+}
+
 body {
     margin: 0;
-    display: grid;
-    place-items: center;
     color: var(--primary-color-600);
     background-color: var(--primary-color-400);
     font-family: 'Poppins', sans-serif;
+    padding-bottom: 97px;
 }
 
 header, footer {
-    display: grid;
-    place-items: center;
+    box-shadow: 0 0 0 6px;
     background-color: var(--primary-color-500);
-    width: 100vw;
+    width: 100%;
 }
 
+.navbar {gap: 20px;}
+
+.grid {
+    display: grid;
+    place-items: center;
+}
+
+
 .flex {
-    padding: 20px 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
+    align-items: flex-end;
+    flex-flow: row wrap;
+ }
+
 
 a {
     color: var(--secondary-color-400);
@@ -46,16 +65,20 @@ h1.title {
 }
 
 .card {
+    margin: 20px 0;
+    width: clamp(240px, calc(100% - 40px), 1500px);
     background-color: var(--primary-color-500);
     border-radius: 5px;
     padding: 10px 20px;
 }
 
 .container {
-    width: 90vw;
+    padding: 20px 0;
+    width: 90%;
 }
 
 footer {
     position: fixed;
     bottom: 0;
-}
+    height: 97px;
+ }
