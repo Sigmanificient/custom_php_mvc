@@ -76,9 +76,9 @@ h1.title {
     padding: 10px 20px;
 }
 
-main > * {animation: slide-up 1s ease-in-out;}
-main > h1 {animation: slide-up 0.8s ease-in-out;}
-main > .card {animation: slide-up 1.2s ease-in-out;}
+main > * {animation: slide-up 1s cubic-bezier(0.5, 0, 0.25, 1.5);}
+main > h1 {animation: slide-up 0.8s cubic-bezier(0.5, 0, 0.25, 1.5);}
+main > .card {animation: slide-up 1.2s cubic-bezier(0.5, 0, 0.25, 1.5);}
 
 @keyframes slide-up {
     from {
