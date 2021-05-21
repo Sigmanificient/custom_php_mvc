@@ -1,2 +1,6 @@
 RewriteEngine On
 RewriteRule ^([A-z0-9_/-]*)$ index.php?p=$1
+
+<FilesMatch "\.(css|js)$">
+  Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
