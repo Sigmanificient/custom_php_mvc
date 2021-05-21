@@ -10,4 +10,9 @@ class ErrorController extends Controller
     {
         $this->render('404');
     }
+
+    public function forbidden()
+    {
+        $this->render('403');
+    }
 }
