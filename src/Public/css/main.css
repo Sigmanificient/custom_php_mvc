@@ -24,7 +24,7 @@ body {
     color: var(--primary-color-600);
     background-color: var(--primary-color-400);
     font-family: 'Poppins', sans-serif;
-    padding-bottom: 97px;
+    padding-bottom: 65px;
 }
 
 header, footer {
@@ -77,8 +77,10 @@ h1.title {
     width: 90%;
 }
 
+.flat {padding: 0}
+
 footer {
     position: fixed;
     bottom: 0;
-    height: 97px;
+    height: 65px;
  }
