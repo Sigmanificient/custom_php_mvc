@@ -8,6 +8,6 @@ class ErrorController extends Controller
 
     public function not_found()
     {
-        echo "404";
+        $this->render('404');
     }
 }
