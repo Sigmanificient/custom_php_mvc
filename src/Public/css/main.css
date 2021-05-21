@@ -8,7 +8,8 @@
 }
 
 ::-webkit-scrollbar {
-    width: 8px; height: 8px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -33,29 +34,32 @@ header, footer {
     width: 100%;
 }
 
-.navbar {gap: 20px;}
+
+.navbar {
+    gap: 20px;
+}
 
 .grid {
     display: grid;
     place-items: center;
 }
 
-
 .flex {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     flex-flow: row wrap;
- }
-
+}
 
 a {
+    transition: all 0.3s ease-in-out;
     color: var(--secondary-color-400);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--secondary-color-400);
+    font-weight: bold;
+    color: var(--secondary-color-500);
 }
 
 h1.title {
@@ -72,15 +76,32 @@ h1.title {
     padding: 10px 20px;
 }
 
+main > * {animation: slide-up 1s ease-in-out;}
+main > h1 {animation: slide-up 0.8s ease-in-out;}
+main > .card {animation: slide-up 1.2s ease-in-out;}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .container {
     padding: 20px 0;
     width: 90%;
 }
 
-.flat {padding: 0}
+.flat {
+    padding: 0
+}
 
 footer {
     position: fixed;
     bottom: 0;
     height: 65px;
- }
+}
