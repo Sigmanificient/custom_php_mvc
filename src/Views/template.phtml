@@ -15,7 +15,7 @@ $content = $content ?? "<p>Page temporarily unavailable</p>";
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins&display=swap" rel="stylesheet">
 </head>
-<body class="grid">
+<body class="grid flat">
     <header class="grid">
         <div class="container flex">
             <a href="<?= SITE ?>">Home</a>
@@ -26,8 +26,10 @@ $content = $content ?? "<p>Page temporarily unavailable</p>";
             </nav>
         </div>
     </header>
-    <main class="container grid">
-        <?= $content ?>
+    <main class="container flat grid">
+        <div class="long-container flat grid">
+            <?= $content ?>
+        </div>
     </main>
     <footer class="grid">
         <div class="container flex flat">
