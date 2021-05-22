@@ -9,8 +9,6 @@ abstract class Controller
     {
         $ext = empty($data) ? 'html' : 'php';
 
-        $time_start = microtime(true);
-
         ob_start();
         require_once ROOT . '/views/' . basename(get_class($this), 'Controller') . '/' . $file . '.' . $ext;
         $content = ob_get_clean();
