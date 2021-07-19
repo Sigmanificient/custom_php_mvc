@@ -1,6 +1,5 @@
 # Custom Php MVC 
 
-[![CodeFactor](https://www.codefactor.io/repository/github/sigmanificient/custom_php_mvc/badge)](https://www.codefactor.io/repository/github/sigmanificient/custom_php_mvc)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Sigmanificient/custom_php_mvc)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Sigmanificient/custom_php_mvc)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Sigmanificient/custom_php_mvc)
