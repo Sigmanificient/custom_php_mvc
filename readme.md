@@ -1,5 +1,6 @@
 # Custom Php MVC 
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Sigmanificient/custom_php_mvc/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Sigmanificient/custom_php_mvc/?branch=master)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Sigmanificient/custom_php_mvc)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Sigmanificient/custom_php_mvc)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Sigmanificient/custom_php_mvc)
