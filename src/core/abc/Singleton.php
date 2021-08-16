@@ -1,5 +1,7 @@
 <?php
 
+namespace mvc\core\abc;
+
 
 abstract class Singleton
 {

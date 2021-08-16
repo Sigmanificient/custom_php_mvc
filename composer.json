@@ -1,0 +1,15 @@
+{
+    "name": "sigmanificient/custom_php_mvc",
+    "autoload": {
+        "psr-4": {
+            "mvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yohann Boniface",
+            "email": "edhyjox@gmail.com"
+        }
+    ],
+    "require": {}
+}

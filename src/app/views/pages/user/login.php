@@ -1,9 +1,5 @@
-<?php
-/* @var array $data */
-?>
-
 <h1 class="title">Connexion</h1>
-<form class="form container grid" action="<?= SITE . '/User/process_login' ?>" method="POST">
+<form class="form container grid" action="/process_login" method="POST">
     <label for="name">
         <input name="name" type="text" placeholder="Nom" required>
     </label>
@@ -24,7 +20,7 @@
 
 
     <label for="actions">
-        <input class="button" type="submit" value="Valider">
         <input class="button" type="reset" value="Annuler" accesskey="r">
+        <input class="button" type="submit" value="Valider">
     </label>
 </form>

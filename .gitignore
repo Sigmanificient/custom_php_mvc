@@ -1,2 +1,8 @@
+# PhpStorm configuration
 .idea
-src/Core/db.ini
+
+# Composer venders
+vendor/
+
+# Application configuration and secrets
+.env
