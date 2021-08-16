@@ -1,1 +1,8 @@
+# PhpStorm configuration
 .idea
+
+# Composer venders
+vendor/
+
+# Application configuration and secrets
+.env
