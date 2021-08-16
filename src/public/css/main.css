@@ -1,0 +1,175 @@
+:root {
+    --primary-color-400: #FCFCFC;
+    --primary-color-500: #EEEEEE;
+    --primary-color-600: #434343;
+
+    --secondary-color-400: #DD6A3A;
+    --secondary-color-500: #AA512C;
+
+    --transition: cubic-bezier(0.5, 0, 0.25, 1.5);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color-500)
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color-600)
+}
+
+body {
+    margin: 0;
+    color: var(--primary-color-600);
+    background-color: var(--primary-color-400);
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 100px;
+}
+
+header, footer {
+    box-shadow: 0 0 0 6px;
+    background-color: var(--primary-color-500);
+    width: 100%;
+}
+
+
+.navbar {
+    gap: 20px
+}
+
+.grid {
+    display: grid;
+    place-items: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-flow: row wrap;
+}
+
+a {
+    transition: all 0.3s ease-in-out;
+    color: var(--secondary-color-400);
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+    color: var(--secondary-color-500);
+}
+
+h1.title {
+    font-size: 3em;
+    font-family: 'Pattaya', sans-serif;
+    text-align: center;
+}
+
+.card {
+    margin: 20px 0;
+    width: clamp(240px, calc(100% - 40px), 1200px);
+    background-color: var(--primary-color-500);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+main {
+    min-height: calc(100vh - 130px);
+}
+
+main > * {
+    animation: slide-up 1s var(--transition)
+}
+
+main > h1 {
+    animation: slide-up 0.8s var(--transition)
+}
+
+main > .card {
+    animation: slide-up 1.2s var(--transition)
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    padding: 20px 0;
+    width: 90%;
+    max-width: 1520px;
+}
+
+.long-container {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.flat {
+    padding: 0
+}
+
+footer {
+    height: 65px;
+}
+
+.github-icon {
+    fill: var(--primary-color-600);
+}
+
+.form {
+    border-radius: 5px;
+    background-color: var(--primary-color-500);
+    width: clamp(25%, 320px, 80%);
+    margin-bottom: 50px;
+}
+
+label {
+    width: 80%;
+    padding: 20px 0;
+}
+
+input {
+    padding: 10px 20px;
+    outline: none;
+    border: 0;
+}
+
+input[type="text"], input[type="password"] {
+    height: 24px;
+    width: calc(100% - 40px);
+}
+
+label[for="actions"] {
+    display: flex;
+    justify-content: space-around;
+}
+
+.splash {
+    text-align: center;
+    font-size: 1em;
+    width: 80%;
+}
+
+.button {
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--secondary-color-400);
+    min-width: 30%;
+}
+
+.button:hover {
+    background-color: var(--secondary-color-500);
+}
