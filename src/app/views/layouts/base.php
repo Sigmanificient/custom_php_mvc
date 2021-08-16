@@ -17,9 +17,9 @@
     <div class="container flex">
         <a href="/">Home</a>
         <nav class="navbar flex">
-            <a href="/Articles">Articles</a>
-            <a href="/About">About</a>
-            <a href="/User/login">Login</a>
+            <a href="/articles">Articles</a>
+            <a href="/about">About</a>
+            <a href="/login">Login</a>
         </nav>
     </div>
 </header>

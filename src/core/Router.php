@@ -35,15 +35,19 @@ class Router
 
         if ($callback === false) {
             $this->response->setStatusCode(404);
-            $callback = ['Error', 'notFound'];
+            $callback = $this->routes['get']['404'] ?? '404 Not Found';
+        }
+
+        if (is_string($callback)) {
+            return $callback;
         }
 
         $controllerName = ucfirst(array_shift($callback)) . 'Controller';
-        include ROOT_DIR."/app/controllers/$controllerName.php";
+        include ROOT_DIR . "/app/controllers/$controllerName.php";
         $controller = new $controllerName;
 
         $method = array_shift($callback);
 
-        echo $controller->$method();
+        return $controller->$method();
     }
 }

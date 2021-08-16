@@ -8,4 +8,9 @@ class siteController extends Controller
     {
         return $this->render('index');
     }
+
+    public function about(): string
+    {
+        return $this->render('about');
+    }
 }
