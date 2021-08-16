@@ -9,5 +9,7 @@ $app = new Application();
 
 $app->router->get('/', 'site', 'index');
 $app->router->get('/about', 'site', 'about');
+$app->router->get('/login', 'auth', 'login');
 $app->router->get('404', 'error', 'notFound');
+
 $app->run();

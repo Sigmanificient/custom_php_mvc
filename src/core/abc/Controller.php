@@ -4,10 +4,10 @@ namespace mvc\core\abc;
 
 abstract class Controller
 {
-    public function render($view)
+    public function render($view, $params = [])
     {
         $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view);
+        $viewContent = $this->renderOnlyView($view, $params);
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 
@@ -18,7 +18,7 @@ abstract class Controller
         return ob_get_clean();
     }
 
-    protected function renderOnlyView($view)
+    protected function renderOnlyView($view, $data)
     {
         ob_start();
         include_once ROOT_DIR . "/app/views/pages/$view.php";
