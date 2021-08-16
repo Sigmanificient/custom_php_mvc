@@ -16,50 +16,34 @@ class Router
         $this->response = $response;
     }
 
-    public function get($uri, $callback)
+    public function get($uri, $controller, $method)
     {
-        $this->routes['get'][$uri] = $callback;
+        $this->routes['get'][$uri] = [$controller, $method];
     }
 
-    public function post($uri, $callback)
+    public function post($uri, $controller, $method)
     {
-        $this->routes['post'][$uri] = $callback;
+        $this->routes['post'][$uri] = [$controller, $method];
     }
 
     public function resolve()
     {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
+
         $callback = $this->routes[$method][$path] ?? false;
 
         if ($callback === false) {
             $this->response->setStatusCode(404);
-            return $this->renderView('_404');
+            $callback = ['Error', 'notFound'];
         }
 
-        if (is_string($callback)) {
-            return $this->renderView($callback);
-        }
+        $controllerName = ucfirst(array_shift($callback)) . 'Controller';
+        include ROOT_DIR."/app/controllers/$controllerName.php";
+        $controller = new $controllerName;
 
-       return call_user_func($callback);
-    }
+        $method = array_shift($callback);
 
-    public function renderView($view)
-    {
-        $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view);
-        return str_replace('{{content}}', $viewContent, $layoutContent);
-    }
-
-    public function layoutContent() {
-        ob_start();
-        include_once ROOT_DIR."/app/views/layouts/base.php";
-        return ob_get_clean();
-    }
-
-    protected function renderOnlyView($view) {
-        ob_start();
-        include_once ROOT_DIR."/app/views/pages/$view.php";
-        return ob_get_clean();
+        echo $controller->$method();
     }
 }

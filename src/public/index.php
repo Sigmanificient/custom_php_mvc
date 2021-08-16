@@ -7,6 +7,5 @@ use mvc\core\Application;
 
 $app = new Application();
 
-$app->router->get('/', 'index');
-
+$app->router->get('/', 'site', 'index');
 $app->run();
