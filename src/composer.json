@@ -2,7 +2,7 @@
     "name": "sigmanificient/custom_php_mvc",
     "autoload": {
         "psr-4": {
-            "mvc\\": "src/"
+            "mvc\\": "./"
         }
     },
     "authors": [
