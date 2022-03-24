@@ -1,6 +1,6 @@
 <?php
 
-namespace mvc\core\abc;
+namespace mvc\core\meta;
 
 abstract class Controller
 {

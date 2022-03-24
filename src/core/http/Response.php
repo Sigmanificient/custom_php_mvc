@@ -1,6 +1,6 @@
 <?php
 
-namespace mvc\core;
+namespace mvc\core\http;
 
 class Response
 {

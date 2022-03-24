@@ -1,6 +1,7 @@
 <?php
 
-use mvc\core\abc\Controller;
+
+use mvc\core\meta\Controller;
 
 class SiteController extends Controller
 {

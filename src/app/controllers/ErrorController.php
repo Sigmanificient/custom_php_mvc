@@ -1,6 +1,6 @@
 <?php
 
-use mvc\core\abc\Controller;
+use mvc\core\meta\Controller;
 
 class ErrorController extends Controller
 {

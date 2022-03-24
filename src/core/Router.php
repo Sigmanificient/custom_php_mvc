@@ -2,6 +2,9 @@
 
 namespace mvc\core;
 
+use mvc\core\http\Request;
+use mvc\core\http\Response;
+
 class Router
 {
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace mvc\core;
+namespace mvc\core\http;
 
-use mvc\core\abc\Singleton;
+use mvc\core\meta\Singleton;
 
 class Session extends Singleton
 {

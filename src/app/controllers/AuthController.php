@@ -1,7 +1,8 @@
 <?php
 
-use mvc\core\Session;
-use mvc\core\abc\Controller;
+
+use mvc\core\http\Session;
+use mvc\core\meta\Controller;
 
 class AuthController extends Controller
 {
