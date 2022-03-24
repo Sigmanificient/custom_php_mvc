@@ -18,13 +18,20 @@ class Router
         $controllerName = ucfirst(array_shift($params)) . 'Controller';
 
         if (!file_exists(ROOT_DIR . "/app/controllers/$controllerName.php")) {
+            array_unshift($params, $controllerName);
             $controllerName = 'SiteController';
         }
 
         require_once ROOT_DIR . '/app/controllers/' . $controllerName . '.php';
-        $controller = new $controllerName();
 
+        $controller = new $controllerName();
+        var_dump($params);
         $methodName = strtolower(array_shift($params));
+
+        if (!method_exists($controller, $methodName) && $controllerName != 'SiteController') {
+            $methodName = 'index';
+        }
+
         if (!method_exists($controller, $methodName)) {
             Response::status(404);
             return $this->resolve(['Error', 'notFound']);
