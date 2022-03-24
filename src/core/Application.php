@@ -13,7 +13,6 @@ class Application
 
         if ($response_content) {
             echo $response_content;
-            Response::status(200);
         }
     }
 }
