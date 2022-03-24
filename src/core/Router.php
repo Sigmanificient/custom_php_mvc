@@ -1,56 +1,35 @@
 <?php
 
 namespace mvc\core;
-
 use mvc\core\http\Request;
 use mvc\core\http\Response;
 
 class Router
 {
-
-    public Request $request;
-    public Response $response;
-
-    protected array $routes = [];
-
-    public function __construct(Request $request, Response $response)
+    public function getParams(): array
     {
-        $this->request = $request;
-        $this->response = $response;
-    }
-
-    public function get($uri, $controller, $method)
-    {
-        $this->routes['get'][$uri] = [$controller, $method];
-    }
-
-    public function post($uri, $controller, $method)
-    {
-        $this->routes['post'][$uri] = [$controller, $method];
+        $uri = Request::getUri();
+        return explode('/', $uri == '/' ? "Site/index" : substr($uri, 1));
     }
 
     public function resolve()
     {
-        $path = $this->request->getPath();
-        $method = $this->request->getMethod();
+        $params = $this->getParams();
 
-        $callback = $this->routes[$method][$path] ?? false;
+        $controllerName = ucfirst(array_shift($params)) . 'Controller';
 
-        if ($callback === false) {
-            $this->response->setStatusCode(404);
-            $callback = $this->routes['get']['404'] ?? '404 Not Found';
+        if (!file_exists(ROOT_DIR . "/app/controllers/$controllerName.php")) {
+            Response::redirect('/');
         }
 
-        if (is_string($callback)) {
-            return $callback;
+        require_once ROOT_DIR . '/app/controllers/' . $controllerName . '.php';
+        $controller = new $controllerName();
+
+        $methodName = strtolower(array_shift($params));
+        if (!method_exists($controller, $methodName)) {
+            Response::redirect('/');
         }
 
-        $controllerName = ucfirst(array_shift($callback)) . 'Controller';
-        include ROOT_DIR . "/app/controllers/$controllerName.php";
-        $controller = new $controllerName;
-
-        $method = array_shift($callback);
-
-        return $controller->$method();
+        return call_user_func_array([$controller, $methodName], $params);
     }
 }

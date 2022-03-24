@@ -4,7 +4,8 @@ namespace mvc\core\http;
 
 class Request
 {
-    public function getPath(): string
+
+    public static function getUri(): string
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
 
@@ -18,7 +19,7 @@ class Request
     }
 
 
-    public function getMethod(): string
+    public static function getMethod(): string
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }

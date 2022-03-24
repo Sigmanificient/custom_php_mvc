@@ -2,25 +2,18 @@
 
 namespace mvc\core;
 
-use mvc\core\http\Request;
 use mvc\core\http\Response;
 
 class Application
 {
-    public Router $router;
-    public Request $request;
-    public Response $response;
-
-    public function __construct()
+    public static function run()
     {
-        $this->request = new Request();
-        $this->response = new Response();
+        $router = new Router();
+        $response_content = $router->resolve();
 
-        $this->router = new Router($this->request, $this->response);
-    }
-
-    public function run()
-    {
-        echo $this->router->resolve();
+        if ($response_content) {
+            echo $response_content;
+            Response::status(200);
+        }
     }
 }
